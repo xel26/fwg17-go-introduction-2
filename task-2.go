@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type deretBilangan struct {
 	limit int
@@ -8,49 +10,59 @@ type deretBilangan struct {
 
 
 
-var deret deretBilangan = deretBilangan{
-	limit: 40,
-}
-
-
-
-func (d deretBilangan) ganjil() {
+func (d deretBilangan) ganjil() string {
+	data := "ganjil: "
 	for i := 1; i <= d.limit; i++ {
 		if i % 2 != 0 {
-			fmt.Println("bilangan ganjil", i)
+			data += fmt.Sprintf("%v ", i)
 		}
 	}
+
+	return data
 }
 
 
 
 
-func (d deretBilangan) genap() {
+func (d deretBilangan) genap() string {
+	data := "genap: "
+
 	for i := 1; i <= d.limit; i++ {
 		if i % 2 == 0 {
-			fmt.Println("bilangan genap", i)
+			data += fmt.Sprintf("%v, ", i)
 		}
 	}
+
+	return data
 }
 
 
 
 
-func (d deretBilangan) prima() {
-	for i := 1; i <= d.limit; i++ {
-		if i % 2 == 0 {
-			fmt.Println("bilangan prima", i)
-		}
+func (d deretBilangan) fibonacci() string {
+	data := make([]int, 10)
+	data[0], data[1] = 0, 1
+
+	for i := 2; data[i - 1] + data[i - 2] <= d.limit; i++ {
+		data[i] = data[i - 1] + data[i -2]
 	}
+	 
+	results := "fibonacci: "
+	for _, v := range data {
+		results += fmt.Sprintf("%v, ", v)
+	}
+
+	return results
 }
 
 
 
 func execute() {
-	// deret := deretBilangan{40}
-	deret.ganjil()
-	deret.genap()
+	deret := deretBilangan{40}
+	
+	fmt.Println(deret.ganjil())
+	fmt.Println(deret.genap())
 	// deret.prima()
-	// deret.fibonacci()
+	fmt.Println(deret.fibonacci())
 
 }

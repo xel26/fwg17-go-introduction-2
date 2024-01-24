@@ -1,9 +1,8 @@
 package main
 
-import "fmt"
-
-
-
+import (
+	"fmt"
+)
 
 func main() {
 	// task 1
@@ -11,11 +10,15 @@ func main() {
 
 	for _, v := range params{
 		result := Pembulatan(v)
-		fmt.Printf("%.2f\n", result)
+		fmt.Printf("%.2f, ", result)
 	}
 
-
+	fmt.Println()
 
 	//task 2
 	execute()
+
+
+	//task 3
+	result()
 }
