@@ -39,6 +39,29 @@ func (d deretBilangan) genap() string {
 
 
 
+func (d deretBilangan) prima() string {
+	data := "prima: "
+	for i := 2; i <= d.limit; i++ {
+
+		faktor := []int{}
+		for j := 1; j <= i; j++{
+			if i % j == 0{
+				faktor = append(faktor, j)
+			}
+		}
+
+		if len(faktor) == 2{
+			data += fmt.Sprintf("%v ,", i)
+		}
+
+	}
+
+		return data
+	}
+
+
+
+
 func (d deretBilangan) fibonacci() string {
 	data := make([]int, 10)
 	data[0], data[1] = 0, 1
@@ -62,7 +85,7 @@ func execute() {
 	
 	fmt.Println(deret.ganjil())
 	fmt.Println(deret.genap())
-	// deret.prima()
+	fmt.Println(deret.prima())
 	fmt.Println(deret.fibonacci())
 
 }
