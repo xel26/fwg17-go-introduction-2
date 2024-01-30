@@ -37,10 +37,10 @@ func (p kubus) volume() float64 {
 }
 
 func result() {
-	var bangunDatar hitung2d = persegi{2}
+	var bangunDatar hitung2d = persegi{6}
 	fmt.Println("luas Persegi: ", bangunDatar.luas())
 	fmt.Println("keliling Persegi: ", bangunDatar.keliling())
 
-	var bangunRuang hitung3d = kubus{2}
+	var bangunRuang hitung3d = kubus{6}
 	fmt.Println("volume kubus: ", bangunRuang.volume())
 }
